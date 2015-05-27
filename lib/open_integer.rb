@@ -28,7 +28,7 @@ module OpenInteger
   #
   # Returns the number of factors self has.
   def count_factors
-    factor_pairs.count
+    factor_pairs.to_a.flatten.uniq.count
   end
 
   # Public: Determines if self is a factor of other (i.e. if other is evenly
