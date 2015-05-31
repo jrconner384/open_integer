@@ -7,10 +7,10 @@ module OpenInteger
   # Returns the result of n choose k where n is self and k is the Integer
   # argument
   def choose(k)
-    n_shriek = factorial
-    k_shriek = k.factorial
-    n_minus_k_shriek = (self - k).factorial
-    n_shriek / (k_shriek * n_minus_k_shriek)
+    n_factorial = factorial
+    k_factorial = k.factorial
+    n_minus_k_factorial = (self - k).factorial
+    n_factorial / (k_factorial * n_minus_k_factorial)
   end
 
   # Public: Generates the Collatz sequence beginning with self.
@@ -28,7 +28,7 @@ module OpenInteger
   #
   # Returns the number of factors self has.
   def count_factors
-    factor_pairs.to_a.flatten.uniq.count
+    factors.count
   end
 
   # Public: Determines if self is a factor of other (i.e. if other is evenly
@@ -41,13 +41,6 @@ module OpenInteger
     !other.nil? && other % self == 0
   end
 
-  # Public: Calculates the factorial of self.
-  #
-  # Returns the factorial of self.
-  def factorial
-    (1..self).inject(:*)
-  end
-
   # Public: Finds factor pairs of self.
   #
   # Returns the factor pairs of self.
@@ -55,11 +48,30 @@ module OpenInteger
   # Yields each factor pair as it is identified.
   def factor_pairs
     return to_enum(:factor_pairs) unless block_given?
-    pointer = 1
-    top = (Math.sqrt self).to_i
 
-    (pointer..top).each do |num|
-      yield [num, self / num] if num.factor_of? self
+    factors.each do |factor|
+      yield [factor, self / factor]
+    end
+  end
+
+  # Public: Calculates the factorial of self.
+  #
+  # Returns the factorial of self.
+  def factorial
+    (1..self).inject(:*)
+  end
+
+  # Public: Finds all factors of self.
+  #
+  # Returns the factors of self.
+  #
+  # Yields each factor as it is identified.
+  def factors
+    return to_enum(:factors) unless block_given?
+    top = (self / 2).to_i
+
+    (1..top).each do |num|
+      yield num if num.factor_of? self
     end
   end
 
