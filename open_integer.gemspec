@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'open_integer'
-  s.version     = '0.1.0'
+  s.version     = '0.2.0'
   s.date        = '2015-05-26'
   s.summary     = 'open_integer'
   s.description = 'Various extensions for the Integer class'

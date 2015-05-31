@@ -1,5 +1,13 @@
 # Public: Provides extensions to the built-in Integer class.
 module OpenInteger
+  # Public: Determines if self is an abundant number. A number is abundant iff
+  # the sum of its proper divisors is greater than the number itself.
+  #
+  # Returns true iff the sum of the proper factors of self is greater than self.
+  def abundant?
+    factors.reduce(:+) > self
+  end
+
   # Public: An implementation of n choose k using factorials.
   #
   # k - The k parameter of the n choose k formula.
@@ -29,6 +37,14 @@ module OpenInteger
   # Returns the number of factors self has.
   def count_factors
     factors.count
+  end
+
+  # Public: Determines if self is a deficient number. A number is deficient iff
+  # the sum of its proper divisors is less than the number itself.
+  #
+  # Returns true iff the sum of the proper factors of self is less than self.
+  def deficient?
+    factors.reduce(:+) < self
   end
 
   # Public: Determines if self is a factor of other (i.e. if other is evenly
@@ -93,6 +109,14 @@ module OpenInteger
   # Returns the nth triangular number.
   def self.nth_triangular_number(n)
     (1..n).reduce(:+)
+  end
+
+  # Public: Determines if self is a perfect number. A number is perfect iff the
+  # sum of its proper divisors is exactly equal to the number itself.
+  #
+  # Returns true iff self is a perfect number.
+  def perfect?
+    factors.reduce(:+) == self
   end
 
   # Public: Determines the prime factors of self.
