@@ -17,7 +17,7 @@ New methods!
 
 Bug discovery!
 --------------
-- See Issue #1. `0.factor_of(n)` causes a `ZeroDivisionError`
+- [Issue #1](https://github.com/jrconner384/open_integer/issues/1). `0.factor_of(n)` causes a `ZeroDivisionError`
 
 Version 0.1.0
 =============
