@@ -8,6 +8,19 @@ module OpenInteger
     factors.reduce(:+) > self
   end
 
+  # Public: Determines if self and other are an amicable pair. Numbers a and b
+  # are amicable if the sum of the factors of a equals b, the sum of the factors
+  # of b equals a, and a is not equal to b.
+  #
+  # other - The value which may be amicable with self.
+  #
+  # Returns true iff self is amicable with other.
+  def amicable_with?(other)
+    factors.reduce(:+) == other &&
+      other.factors.reduce(:+) == self &&
+      self != other
+  end
+
   # Public: An implementation of n choose k using factorials.
   #
   # k - The k parameter of the n choose k formula.

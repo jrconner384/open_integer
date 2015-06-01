@@ -1,3 +1,12 @@
+Version 0.3.0
+=============
+New method!
+-----------
+- `#amicable_with?(other)` - A number _a_ is amicable with another number _b_ if the following conditions are met:
+ - _a_ is not equal to _b_.
+ - The sum of the factors of _a_ is equal to _b_.
+ - The sum of the factors of _b_ is equal to _a_.
+
 Version 0.2.0
 =============
 New methods!
