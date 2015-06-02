@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'open_integer'
-  s.version     = '0.3.0'
+  s.version     = '0.4.0'
   s.date        = '2015-05-26'
   s.summary     = 'open_integer'
   s.description = 'Various extensions for the Integer class'
@@ -9,4 +9,6 @@ Gem::Specification.new do |s|
   s.files       = ['lib/open_integer.rb']
   s.homepage    = 'https://github.com/jrconner384/open_integer'
   s.license     = 'MIT'
+
+  s.add_development_dependency 'minitest', '~> 5'
 end

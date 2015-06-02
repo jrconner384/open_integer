@@ -10,6 +10,26 @@ I do have plans to publish this on [RubyGems](https://rubygems.org) once I have 
 
 Changelog
 ---------
+__Version 0.4.0__
+
+_New method!_
+- `#divisors` - Gets you the proper divisors of the number this is called on. A proper divisor is defined by Wolfram MathWorld as positive divisors of a value excluding that value itself.
+
+_Updated implementations!_
+
+These are based largely on me mistakenly treating factors and divisors as the same thing.
+- `#factors`
+ - Only returns or yields values greater than 1.
+ - Now raises a `RuntimeError` if called on values less than 2.
+- `#factor_of?` raises a `RuntimeError` if called on 0. Docs updated with this change.
+- `#abundant?`, `#deficient?`, and `#perfect?` use the new `#divisors` method. Docs updated to reflect this change.
+
+__Version 0.3.1__
+
+_Bug fix!_
+
+`#factors` now works correctly when called on `1`.
+
 __Version 0.3.0__
 
 _New method!_
