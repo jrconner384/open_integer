@@ -1,7 +1,9 @@
 [![Build Status](https://travis-ci.org/jrconner384/open_integer.svg?branch=master)](https://travis-ci.org/jrconner384/open_integer)
 OpenInteger
 ===========
-OpenInteger is here to provide some niche functionality to the Integer class that doesn't come baked in. I have a single goal in mind: readability. It's one thing to know that _n!_ can be expressed in a single line as `(1..n).inject(:*)` but it's so much nicer (and clearer) to write `n.factorial`.
+OpenInteger is "open" as in "open source" and "open classes". It's here to provide some niche functionality to the Integer class that doesn't come baked in.
+
+I have a single goal in mind for this project: readability. It's one thing to know that _n!_ can be expressed in a single line as `(1..n).inject(:*)` but it's so much nicer (and clearer) to write `n.factorial`.
 
 Getting the Gem
 ---------------
