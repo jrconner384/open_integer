@@ -43,9 +43,9 @@ These are based largely on me mistakenly treating factors and divisors as the sa
 
 __Version 0.3.1__
 
-~~_Bug fix!_
+~~_Bug fix!_~~
 
-`#factors` now works correctly when called on `1`.~~
+~~`#factors` now works correctly when called on `1`.~~
 
 _Apologies. Version 0.3.1 identifies 1 as a factor of 1 but, since my goal is to find proper factors, 1 doesn't have any factors and this version does not correctly demonstrate that._
 
