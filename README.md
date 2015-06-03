@@ -11,7 +11,23 @@ I do have plans to publish this on [RubyGems](https://rubygems.org) once I have 
 
 Changelog
 ---------
-__Version 0.4.0__
+__Version 0.4.0__ (upcoming)
+
+This is a fairly big milestone in this project's life, thanks mostly to me figuring out a few things about [minitest](https://github.com/seattlerb/minitest), [Travis CI](https://travis-ci.org/), and installing a gem locally without the need to publish it (trust me, that caused me some pain).
+
+_minitest!_
+
+I'm learning minitest. I've already started publishing some specs [here](test/spec.rb) which, hopefully, will provide a measure of sanity. At a minimum, the specs will demonstrate when I get the math concepts wrong, which I expect to happen since I'm not a particularly strong mathematician.
+
+To create a robust test suite, I've started using exceptions to more descriptively demonstrate failure conditions. This is to replace things like esoteric `NoMethodError`s and `ZeroDivisionError`s the runtime was (correctly) throwing with nicer messages describing _why_ something has failed.
+
+_Travis!_
+
+I'm now using Travis to keep the test suite running following each push to the repo. I got my first round of tests working as expected and I got Travis to successfully run the tests so now I've got a delightful green (for now) 'passing' badge.
+
+_Fewer versions, just as many updates!_
+
+At this stage, I intend to push out new versions much less frequently without reducing the frequency of commits to the code base. That'll mean that the head will be nominally unstable but I won't be hurtling towards ridiculous version numbers. I'm pretty sure that, at this rate, I'd have released v0.267.0 in the next couple of weeks.
 
 _New method!_
 - `#divisors` - Gets you the proper divisors of the number this is called on. A proper divisor is defined by Wolfram MathWorld as positive divisors of a value excluding that value itself.
@@ -27,9 +43,11 @@ These are based largely on me mistakenly treating factors and divisors as the sa
 
 __Version 0.3.1__
 
-_Bug fix!_
+~~_Bug fix!_
 
-`#factors` now works correctly when called on `1`.
+`#factors` now works correctly when called on `1`.~~
+
+_Apologies. Version 0.3.1 identifies 1 as a factor of 1 but, since my goal is to find proper factors, 1 doesn't have any factors and this version does not correctly demonstrate that._
 
 __Version 0.3.0__
 
@@ -54,7 +72,7 @@ _Bug discovery!_
 
 __Version 0.1.0__
 
-I'm trying to keep to [semantic versioning](semver.org) which I haven't exactly done properly so far. I'm adding a new method, factors, though and it's a backwards compatible change so that means minor version bump. Details follow.
+I'm trying to keep to [semantic versioning](semver.org) which I haven't exactly done properly so far. I'm adding a new method, `#factors`, though and it's a backwards compatible change so that means minor version bump. Details follow.
 
 _New Methods_
 
