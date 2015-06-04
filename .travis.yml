@@ -21,4 +21,4 @@ deploy:
     branch: open_CI
 
 after_success:
-  "curl -F package=open_integer.gem $FURY"
+  "curl -F package=@open_integer.gem $FURY"
