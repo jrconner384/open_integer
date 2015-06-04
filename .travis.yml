@@ -19,6 +19,3 @@ deploy:
     tags: true
     repo: jrconner384/open_integer
     branch: open_CI
-
-after_success:
-  - coveralls push
