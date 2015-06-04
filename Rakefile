@@ -6,7 +6,7 @@ Rake::TestTask.new do |t|
   t.test_files = FileList['test/*.rb']
   t.verbose = true
 
-  coveralls.push!
+  Coveralls.push!
 end
 
 task default: :test
