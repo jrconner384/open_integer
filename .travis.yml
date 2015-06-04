@@ -1,8 +1,5 @@
 language: ruby
 
-install:
-  - gem install coveralls
-
 rvm:
 - 1.9.2
 - 1.9.3
@@ -24,6 +21,4 @@ deploy:
     branch: open_CI
 
 after_success:
-  - coveralls
-  - git remote add fury https://jrconner384@git.fury.io/jrconner384/open_integer.git
-  - git push fury master
+  - coveralls push
