@@ -1,5 +1,7 @@
 language: ruby
 
+install: gem install coveralls
+
 rvm:
 - 1.9.2
 - 1.9.3
@@ -21,4 +23,8 @@ deploy:
     branch: open_CI
 
 after_success:
-  "curl -F package=@open_integer.gem $FURY"
+  - coveralls
+  - chmod 600 .travis/deploy_key.pem
+  - ssh-add .travis/deploy_key.pem
+  - git remote add deploy https://jrconner384@git.fury.io/jrconner384/<package-name>.git
+  - git push deploy
