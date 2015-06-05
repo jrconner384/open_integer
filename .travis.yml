@@ -5,6 +5,7 @@ rvm:
 
 script:
   - gem install simplecov
+  - rake test
 
 deploy:
   provider: rubygems
