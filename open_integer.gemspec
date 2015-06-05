@@ -11,6 +11,8 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.required_ruby_version = '>=1.9.2'
 
+  s.add_development_dependency 'simplecov', '>= 0.9'
+  s.add_development_dependency 'coveralls'
   s.add_development_dependency 'minitest', '~> 5'
 
   s.version = "#{s.version}-pre-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
