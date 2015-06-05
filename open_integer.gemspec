@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>=1.9.2'
 
   s.add_development_dependency 'minitest', '~> 5'
+  s.add_development_dependency 'coveralls'
 
   s.version = "#{s.version}-pre-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
 end
