@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/jrconner384/open_integer.svg?branch=master)](https://travis-ci.org/jrconner384/open_integer)
-[![Coverage Status](https://coveralls.io/repos/jrconner384/open_integer/badge.svg)](https://coveralls.io/r/jrconner384/open_integer)
 OpenInteger
 ===========
 OpenInteger is "open" as in "open source" and "open classes". It's here to provide some niche functionality to the Integer class that doesn't come baked in.

@@ -1,6 +1,5 @@
 require 'minitest/autorun'
 require 'open_integer'
-require File.expand_path '../test_helper', __FILE__
 
 describe Integer do
   it 'says abundant numbers are neither deficient nor perfect' do
