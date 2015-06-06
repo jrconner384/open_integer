@@ -1,6 +1,4 @@
-require File.expand_path '../../coverage_helper', __FILE__
-require 'minitest/autorun'
-require 'open_integer'
+require File.expand_path '../../helpers/helper', __FILE__
 
 describe Integer do
   it 'says abundant numbers are neither deficient nor perfect' do
@@ -46,20 +44,5 @@ describe Integer do
     (2..10_000).map do |num|
       (num.abundant? ^ num.deficient?).must_equal(true) unless num.perfect?
     end
-  end
-
-  it 'throws a RuntimeError when calling 0.factor_of? n' do
-    err = -> { 0.factor_of? 1 }.must_raise RuntimeError
-    err.message.must_match 'Zero is not a factor of anything.'
-  end
-
-  it 'throws a RuntimeError when calling #factors on numbers less than 2' do
-    err = -> { 1.factors }.must_raise RuntimeError
-    err.message.must_match 'Integers less than 2 do not have proper factors.'
-  end
-
-  it 'throws a RuntimeError when calling #divisors on numbers less than 1' do
-    err = -> { 0.divisors }.must_raise RuntimeError
-    err.message.must_match 'Integers less than 1 do not have proper divisors.'
   end
 end
