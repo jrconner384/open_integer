@@ -22,13 +22,22 @@ module OpenInteger
       self != other
   end
 
-  # Public: An implementation of n choose k using factorials.
+  # Public: An implementation of n choose k using factorials. This
+  # implementation works for all n >= k >= 0
   #
   # k - The k parameter of the n choose k formula.
   #
   # Returns the result of n choose k where n is self and k is the Integer
   # argument
   def choose(k)
+    return choose_factorial k if 0 <= k && k <= self
+    fail 'This implementation of n choose k only works for n >= k >= 0.'
+  end
+
+  # Protected: An implementation of n choose k using factorials which works for
+  # values of n >= k >= 0.
+  def choose_factorial(k)
+    return 1 if 0 == k && k <= self
     n_factorial = factorial
     k_factorial = k.factorial
     n_minus_k_factorial = (self - k).factorial
@@ -184,6 +193,8 @@ module OpenInteger
   def self.pythagorean_triplet?(a, b, c)
     (a * a) + (b * b) == (c * c)
   end
+
+  private :choose_factorial
 end
 
 # Public: Mixing OpenInteger extensions into Integer.
