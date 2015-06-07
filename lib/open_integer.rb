@@ -36,6 +36,10 @@ module OpenInteger
 
   # Protected: An implementation of n choose k using factorials which works for
   # values of n >= k >= 0.
+  #
+  # k - The k parameter of the n choose k formula.
+  #
+  # Returns the result of n choose k using the multiplicative impelementation.
   def choose_factorial(k)
     return 1 if 0 == k && k <= self
     n_factorial = factorial
@@ -119,6 +123,7 @@ module OpenInteger
   #
   # Returns the factorial of self.
   def factorial
+    return 1 if self == 0
     (1..self).inject(:*)
   end
 
