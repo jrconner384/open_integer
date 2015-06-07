@@ -26,4 +26,10 @@ describe Integer do
   it 'returns 1 for 0.choose 0' do
     0.choose(0).must_equal 1
   end
+
+  it 'return 1 for n choose n' do
+    (1..10_000).each do |n|
+      n.choose(n).must_equal 1
+    end
+  end
 end
