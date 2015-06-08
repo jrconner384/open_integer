@@ -62,7 +62,9 @@ module OpenInteger
     yield val = val.next_in_collatz_sequence until val == 1
   end
 
-  # Public: Determines the number of factors for the receiver.
+  # Deprecated: Determines the number of factors for the receiver.
+  #
+  # This is deprecated in favor of calling n.factors.count.
   #
   # Returns the number of factors the receiver has.
   def count_factors
