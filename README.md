@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/jrconner384/open_integer.svg?branch=open_CI)](https://travis-ci.org/jrconner384/open_integer)
-[![Inline docs](http://inch-ci.org/github/jrconner384/open_integer.svg?branch=open_CI)](http://inch-ci.org/github/jrconner384/open_integer)
-[![Coverage Status](https://coveralls.io/repos/jrconner384/open_integer/badge.svg?branch=open_CI)](https://coveralls.io/r/jrconner384/open_integer?branch=open_CI)
+[![Build Status](https://travis-ci.org/jrconner384/open_integer.svg?branch=production)](https://travis-ci.org/jrconner384/open_integer)
+[![Inline docs](http://inch-ci.org/github/jrconner384/open_integer.svg?branch=production)](http://inch-ci.org/github/jrconner384/open_integer)
+[![Coverage Status](https://coveralls.io/repos/jrconner384/open_integer/badge.svg?branch=production)](https://coveralls.io/r/jrconner384/open_integer?branch=production)
 OpenInteger
 ===========
 OpenInteger is "open" as in "open source" and "open classes". It's here to provide some niche functionality to the Integer class that doesn't come baked in.
