@@ -1,6 +1,6 @@
 require File.expand_path '../../helpers/helper', __FILE__
 
-describe Integer do
+describe '#factor_pairs?' do
   it 'returns the same number of factor pairs as #factors' do
     (2..10_000).each do |n|
       n.factor_pairs.count.must_equal n.factors.count

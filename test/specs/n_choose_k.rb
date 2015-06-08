@@ -1,6 +1,6 @@
 require File.expand_path '../../helpers/helper', __FILE__
 
-describe Integer do
+describe '#choose' do
   it 'always returns 1 if k equals 0' do
     (1..10_000).each do |n|
       n.choose(0).must_equal 1

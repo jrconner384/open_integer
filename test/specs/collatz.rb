@@ -1,6 +1,6 @@
 require File.expand_path '../../helpers/helper', __FILE__
 
-describe Integer do
+describe '#next_in_collatz_sequence and #collatz_sequence' do
   it 'always returns n/2 for all even n' do
     (2..10_000).each do |n|
       n.next_in_collatz_sequence.must_be(:==, n / 2) if n.even?

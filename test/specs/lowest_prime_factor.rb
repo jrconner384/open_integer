@@ -1,6 +1,6 @@
 require File.expand_path '../../helpers/helper', __FILE__
 
-describe Integer do
+describe '#lowest_prime_factor' do
   it 'always returns a factor of n if n has any prime factors' do
     (1..10_000).each do |n|
       (n % n.lowest_prime_factor).must_equal 0 if n.prime_factors?

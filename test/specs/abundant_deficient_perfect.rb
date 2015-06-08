@@ -1,6 +1,6 @@
 require File.expand_path '../../helpers/helper', __FILE__
 
-describe Integer do
+describe '#abundant?, #deficient?, and #perfect?' do
   it 'says abundant numbers are neither deficient nor perfect' do
     (2..10_000).map do |num|
       if num.abundant?

@@ -1,6 +1,6 @@
 require File.expand_path '../../helpers/helper', __FILE__
 
-describe Integer do
+describe '#count_factors' do
   it 'returns a number equal to n.factors.count' do
     (2..10_000).each do |n|
       n.count_factors.must_equal n.factors.count
