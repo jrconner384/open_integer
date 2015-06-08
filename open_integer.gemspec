@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'simplecov', '~> 0.9'
   s.add_development_dependency 'coveralls', '~> 0.8'
   s.add_development_dependency 'minitest', '~> 5'
+  s.add_development_dependency 'fivemat', '~> 1.3'
 
   s.version = "#{s.version}-pre-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
 end

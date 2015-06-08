@@ -6,6 +6,7 @@ rvm:
 script:
   - gem install simplecov
   - gem install coveralls
+  - gem install fivemat
   - rake test
 
 deploy:
