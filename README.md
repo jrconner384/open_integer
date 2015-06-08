@@ -12,28 +12,26 @@ Getting the Gem
 You've got two options until I publish the gem to RubyGems: add my [Gemfury repo](https://repo.fury.io/jrconner384/) and install from the command line or build the gem from source and install.
 
 __From Gemfury__
-
-- `gem install open_integer`
-- `require 'open_integer`
+- `gem install open_integer --source https://repo.fury.io/jrconner384/`
 
 __Build it Yourself__
-
 - Navigate to wherever you want to clone the repo.
 - `git clone https://github.com/jrconner384/open_integer`
 - `gem build open_integer.gemspec`
 - `gem install open_integer-<version>.gem` where `<version>` is whatever version number the gem build process tacked on to the gem name.
 
-I do have plans to publish this on [RubyGems](https://rubygems.org) once I have everything properly documented and tested. The good news is that I'm keeping up with the documentation. The bad is that I'm new to creating gems and not entirely fluent in testing Ruby code, yet. Stay tuned for the jump to RubyGems.
+__RubyGems__ (tentative)
+- `gem install open_integer`
 
 Changelog
 ---------
-__Version 0.4.0__ (upcoming)
+__Version 0.4.0__ (pre-release)
 
 This is a fairly big milestone in this project's life, thanks mostly to me figuring out a few things about [minitest](https://github.com/seattlerb/minitest), [Travis CI](https://travis-ci.org/), and installing a gem locally without the need to publish it (trust me, that caused me some pain).
 
 _minitest!_
 
-I'm learning minitest. I've already started publishing some specs [here](test/spec.rb) which, hopefully, will provide a measure of sanity. At a minimum, the specs will demonstrate when I get the math concepts wrong, which I expect to happen since I'm not a particularly strong mathematician.
+I'm learning minitest. I've already started publishing some specs [here](test/specs) which, hopefully, will provide a measure of sanity. At a minimum, the specs will demonstrate when I get the math concepts wrong, which I expect to happen since I'm not a particularly strong mathematician.
 
 To create a robust test suite, I've started using exceptions to more descriptively demonstrate failure conditions. This is to replace things like esoteric `NoMethodError`s and `ZeroDivisionError`s the runtime was (correctly) throwing with nicer messages describing _why_ something has failed.
 
@@ -45,8 +43,9 @@ _Fewer versions, just as many updates!_
 
 At this stage, I intend to push out new versions much less frequently without reducing the frequency of commits to the code base. That'll mean that the head will be nominally unstable but I won't be hurtling towards ridiculous version numbers. I'm pretty sure that, at this rate, I'd have released v0.267.0 in the next couple of weeks.
 
-_New method!_
+_New methods!_
 - `#divisors` - Gets you the proper divisors of the number this is called on. A proper divisor is defined by Wolfram MathWorld as positive divisors of a value excluding that value itself.
+- `#lowest_prime_factor` - Works as read.
 
 _Updated implementations!_
 
