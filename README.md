@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/jrconner384/open_integer.svg?branch=master)](https://travis-ci.org/jrconner384/open_integer)
-[![Inline docs](http://inch-ci.org/github/jrconner384/open_integer.svg?branch=master)](http://inch-ci.org/github/jrconner384/open_integer)
+[![Build Status](https://travis-ci.org/jrconner384/open_integer.svg?branch=open_CI)](https://travis-ci.org/jrconner384/open_integer)
+[![Inline docs](http://inch-ci.org/github/jrconner384/open_integer.svg?branch=open_CI)](http://inch-ci.org/github/jrconner384/open_integer)
 [![Coverage Status](https://coveralls.io/repos/jrconner384/open_integer/badge.svg?branch=open_CI)](https://coveralls.io/r/jrconner384/open_integer?branch=open_CI)
 OpenInteger
 ===========
@@ -9,7 +9,19 @@ I have a single goal in mind for this project: readability. It's one thing to kn
 
 Getting the Gem
 ---------------
-Add my [Gemfury repo](https://repo.fury.io/jrconner384/) to your sources (`gem sources -a https://repo.fury.io/jrconner384/`) and call `gem install open_integer`. The gem takes care of mixing itself into the Integer class so all you need to do is `require 'open_integer'` to gain access to all it has to offer.
+You've got two options until I publish the gem to RubyGems: add my [Gemfury repo](https://repo.fury.io/jrconner384/) and install from the command line or build the gem from source and install.
+
+__From Gemfury__
+
+- `gem install open_integer`
+- `require 'open_integer'
+
+__Build it Yourself__
+
+- Navigate to wherever you want to clone the repo.
+- 'git clone https://github.com/jrconner384/open_integer'
+- 'gem build open_integer.gemspec'
+- 'gem install open_integer-<version>.gem' where <version> is whatever version number the gem build process tacked on to the gem name.
 
 I do have plans to publish this on [RubyGems](https://rubygems.org) once I have everything properly documented and tested. The good news is that I'm keeping up with the documentation. The bad is that I'm new to creating gems and not entirely fluent in testing Ruby code, yet. Stay tuned for the jump to RubyGems.
 
