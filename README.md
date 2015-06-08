@@ -14,14 +14,14 @@ You've got two options until I publish the gem to RubyGems: add my [Gemfury repo
 __From Gemfury__
 
 - `gem install open_integer`
-- `require 'open_integer'
+- `require 'open_integer`
 
 __Build it Yourself__
 
 - Navigate to wherever you want to clone the repo.
-- 'git clone https://github.com/jrconner384/open_integer'
-- 'gem build open_integer.gemspec'
-- 'gem install open_integer-<version>.gem' where <version> is whatever version number the gem build process tacked on to the gem name.
+- `git clone https://github.com/jrconner384/open_integer`
+- `gem build open_integer.gemspec`
+- `gem install open_integer-<version>.gem` where <version> is whatever version number the gem build process tacked on to the gem name.
 
 I do have plans to publish this on [RubyGems](https://rubygems.org) once I have everything properly documented and tested. The good news is that I'm keeping up with the documentation. The bad is that I'm new to creating gems and not entirely fluent in testing Ruby code, yet. Stay tuned for the jump to RubyGems.
 
