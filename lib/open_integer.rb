@@ -33,8 +33,9 @@ module OpenInteger
   # Returns the result of n choose k where n is the receiver and k is the
   # Integer argument
   def choose(k)
-    return choose_factorial k if 0 <= k && k <= self
-    fail 'This implementation of n choose k only works for n >= k >= 0.'
+    fail 'This implementation of n choose k only works for n >= k >= 0.' unless
+      0 <= k && k <= self
+    choose_factorial k
   end
 
   # Protected: An implementation of n choose k using factorials which works for
