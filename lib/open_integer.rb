@@ -1,21 +1,24 @@
+require 'prime'
+
 # Public: Provides extensions to the built-in Integer class.
 module OpenInteger
-  # Public: Determines if self is an abundant number. A number is abundant iff
-  # the sum of its proper divisors is greater than the number itself.
+  # Public: Determines if the receiver is an abundant number. A number is
+  # abundant iff the sum of its proper divisors is greater than the number
+  # itself.
   #
-  # Returns true iff the sum of the proper divisors of self is greater than
-  # self.
+  # Returns true iff the sum of the proper divisors of the receiver is greater
+  # than the receiver.
   def abundant?
     divisors.reduce(:+) > self
   end
 
-  # Public: Determines if self and other are an amicable pair. Numbers a and b
-  # are amicable if the sum of the factors of a equals b, the sum of the factors
-  # of b equals a, and a is not equal to b.
+  # Public: Determines if the receiver and other are an amicable pair. Numbers a
+  # and b are amicable if the sum of the factors of a equals b, the sum of the
+  # factors of b equals a, and a is not equal to b.
   #
-  # other - The value which may be amicable with self.
+  # other - The value which may be amicable with the receiver.
   #
-  # Returns true iff self is amicable with other.
+  # Returns true iff the receiver is amicable with other.
   def amicable_with?(other)
     factors.reduce(:+) == other &&
       other.factors.reduce(:+) == self &&
@@ -27,8 +30,8 @@ module OpenInteger
   #
   # k - The k parameter of the n choose k formula.
   #
-  # Returns the result of n choose k where n is self and k is the Integer
-  # argument
+  # Returns the result of n choose k where n is the receiver and k is the
+  # Integer argument
   def choose(k)
     return choose_factorial k if 0 <= k && k <= self
     fail 'This implementation of n choose k only works for n >= k >= 0.'
@@ -48,7 +51,7 @@ module OpenInteger
     n_factorial / (k_factorial * n_minus_k_factorial)
   end
 
-  # Public: Generates the Collatz sequence beginning with self.
+  # Public: Generates the Collatz sequence beginning with the receiver.
   #
   # Returns an enumerator if no block is given.
   #
@@ -59,28 +62,29 @@ module OpenInteger
     yield val = val.next_in_collatz_sequence until val == 1
   end
 
-  # Public: Determines the number of factors for self.
+  # Public: Determines the number of factors for the receiver.
   #
-  # Returns the number of factors self has.
+  # Returns the number of factors the receiver has.
   def count_factors
     factors.count
   end
 
-  # Public: Determines if self is a deficient number. A number is deficient iff
-  # the sum of its proper divisors is less than the number itself.
+  # Public: Determines if the receiver is a deficient number. A number is
+  # deficient iff the sum of its proper divisors is less than the number itself.
   #
-  # Returns true iff the sum of the proper divisors of self is less than self.
+  # Returns true iff the sum of the proper divisors of the receiver is less than
+  # the receiver.
   def deficient?
     divisors.reduce(:+) < self
   end
 
-  # Public: Finds all proper divisors of self. Proper divisors of a number n
-  # are positive divisors of n excluding n itself.
+  # Public: Finds all proper divisors of the receiver. Proper divisors of a
+  # number n are positive divisors of n excluding n itself.
   #
   # See the definition at Wolfram MathWorld for more details.
   # http://mathworld.wolfram.com/ProperDivisor.html
   #
-  # Returns the proper divisors of self.
+  # Returns the proper divisors of the receiver.
   # Raises RuntimeError if called on an Integer less than 1.
   #
   # Yields each proper divisors as it is identified.
@@ -94,21 +98,21 @@ module OpenInteger
     end
   end
 
-  # Public: Determines if self is a factor of other (i.e. if other is evenly
-  # divisible by self).
+  # Public: Determines if the receiver is a factor of other (i.e. if other is
+  # evenly divisible by the receiver).
   #
-  # other - The Integer which may be a factor of self.
+  # other - The Integer which may be a factor of the receiver.
   #
-  # Returns true iff self is a factor of other.
+  # Returns true iff the receiver is a factor of other.
   # Raises RuntimeError if called on 0.
   def factor_of?(other)
     fail 'Zero is not a factor of anything.' if self == 0
     !other.nil? && other % self == 0
   end
 
-  # Public: Finds factor pairs of self.
+  # Public: Finds factor pairs of the receiver.
   #
-  # Returns the factor pairs of self.
+  # Returns the factor pairs of the receiver.
   #
   # Yields each factor pair as it is identified.
   def factor_pairs
@@ -119,21 +123,21 @@ module OpenInteger
     end
   end
 
-  # Public: Calculates the factorial of self.
+  # Public: Calculates the factorial of the receiver.
   #
-  # Returns the factorial of self.
+  # Returns the factorial of the receiver.
   def factorial
     return 1 if self == 0
     (1..self).inject(:*)
   end
 
-  # Public: Finds all proper factors of self. A proper factor of a positive
-  # integer n is a factor of n other than 1 or n.
+  # Public: Finds all proper factors of the receiver. A proper factor of a
+  # positive integer n is a factor of n other than 1 or n.
   #
   # See the definition at Wolfram MathWorld for more details.
   # http://mathworld.wolfram.com/ProperFactor.html
   #
-  # Returns the proper factors of self.
+  # Returns the proper factors of the receiver.
   # Raises a RuntimeError if called on an Integer less than 2.
   #
   # Yields each proper factor as it is identified.
@@ -147,9 +151,21 @@ module OpenInteger
     end
   end
 
-  # Public: Finds the next number in the Collatz sequence using self as the
-  # initial value. The Collatz sequence can be generated for successive values
-  # n by applying n / 2 if n is even or n * 3 + 1 if n is odd.
+  # Public: Finds the lowest prime factor of the receiver.
+  #
+  # Returns the lowest prime factor of the receiver or nil if the receiver has
+  # no prime factors.
+  def lowest_prime_factor
+    top = (Math.sqrt self).to_i
+
+    Prime.each top do |prime|
+      return prime if prime.factor_of? self
+    end
+  end
+
+  # Public: Finds the next number in the Collatz sequence using the receiver as
+  # the initial value. The Collatz sequence can be generated for successive
+  # values n by applying n / 2 if n is even or n * 3 + 1 if n is odd.
   #
   # Returns the next value in the Collatz sequence.
   def next_in_collatz_sequence
@@ -167,28 +183,33 @@ module OpenInteger
     (1..n).reduce(:+)
   end
 
-  # Public: Determines if self is a perfect number. A number is perfect iff the
-  # sum of its proper divisors is exactly equal to the number itself.
+  # Public: Determines if the receiver is a perfect number. A number is perfect
+  # iff the sum of its proper divisors is exactly equal to the number itself.
   #
-  # Returns true iff self is equal to the sum of its proper divisors.
+  # Returns true iff the receiver is equal to the sum of its proper divisors.
   def perfect?
     divisors.reduce(:+) == self
   end
 
-  # Public: Determines the prime factors of self.
+  # Public: Determines the prime factors of the receiver.
+  #
+  # Returns an Enumerator over the collection of the receiver's prime factors.
   #
   # Yields each prime factor as it is discovered.
   def prime_factors
     return to_enum(:prime_factors) unless block_given?
-    current_value = self
+    top = (Math.sqrt self).to_i
 
-    until current_value.lowest_prime_factor == current_value
-      next_factor = current_value.lowest_prime_factor
-      current_value /= next_factor
-      yield next_factor
+    Prime.each top do |prime|
+      yield prime if prime.factor_of? self
     end
+  end
 
-    yield current_value
+  # Public: Asks the receiver if it has any prime factors.
+  #
+  # Returns true iff the receiver has any prime factors else returns false.
+  def prime_factors?
+    !lowest_prime_factor.nil?
   end
 
   # Public: Determines if the three Integer arguments are a Pythagorean triplet
