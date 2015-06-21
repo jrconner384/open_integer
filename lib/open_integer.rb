@@ -13,16 +13,28 @@ module OpenInteger
   end
 
   # Public: Determines if the receiver and other are an amicable pair. Numbers a
-  # and b are amicable if the sum of the factors of a equals b, the sum of the
-  # factors of b equals a, and a is not equal to b.
+  # and b are amicable if the sum of the divisors of a equals b, the sum of the
+  # divisors of b equals a, and a is not equal to b.
   #
   # other - The value which may be amicable with the receiver.
   #
   # Returns true iff the receiver is amicable with other.
   def amicable_with?(other)
-    factors.reduce(:+) == other &&
-      other.factors.reduce(:+) == self &&
+    divisors.reduce(:+) == other &&
+      other.divisors.reduce(:+) == self &&
       self != other
+  end
+
+  # Public: Determines if the receiver is amicable with any of the arguments.
+  #
+  # others - One or more values to test for amicability with the receiver.
+  #
+  # Returns true iff the receiver is amicable with any of the others.
+  def amicable_with_any?(*others)
+    others.each do |other|
+      return true if amicable_with? other
+    end
+    false
   end
 
   # Public: An implementation of n choose k using factorials. This
@@ -154,6 +166,44 @@ module OpenInteger
     end
   end
 
+  # Public: Returns the nth Fibonacci number where n is the receiver.
+  #
+  # Examples
+  #
+  #   1.fibonacci
+  #   # => 1
+  #
+  #   2.fibonacci
+  #   # => 1
+  #
+  #   3.fibonacci
+  #   # => 2
+  #
+  #   3.fibonacci + 1.fibonacci
+  #   # => 3
+  #
+  # Returns the nth Fibonacci number where n is the receiver.
+  # Raises a RuntimeError if called on any Integer less than 1.
+  def fibonacci
+    return 0 if self <= 0
+    fibonacci_fast_double(self - 1)[1]
+  end
+
+  # Internal: This is the fast-doubling Fibonacci algorithm helper which is
+  # meant to be used by the publicly exposed fibonacci method.
+  #
+  # Returns a two-member array of the form [F(n), F(n+1)]
+  def fibonacci_fast_double(n)
+    return [0, 1] if n <= 0
+    ab = fibonacci_fast_double(n / 2)
+    a = ab[0]
+    b = ab[1]
+    c = a * (2 * b - a)
+    d = b * b + a * a
+    return [c, d] if n.even?
+    [d, c + d]
+  end
+
   # Public: Finds the lowest prime factor of the receiver.
   #
   # Returns the lowest prime factor of the receiver or nil if the receiver has
@@ -223,7 +273,7 @@ module OpenInteger
     (a * a) + (b * b) == (c * c)
   end
 
-  private :choose_factorial
+  private :choose_factorial, :fibonacci_fast_double
 end
 
 # Public: Mixing OpenInteger extensions into Integer.
